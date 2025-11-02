@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شات الفراعنة - Pharaoh Chat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="pharaoh-container">
+        <!-- صفحة تسجيل الدخول -->
+        <div id="login-page" class="page active">
+            <div class="login-box">
+                <div class="pharaoh-header">
+                    <div class="hieroglyph-border"></div>
+                    <h1 class="title">⚱️ شات الفراعنة ⚱️</h1>
+                    <div class="hieroglyph-border"></div>
+                </div>
+                <div class="ankh-symbol">☥</div>
+                <p class="subtitle">أدخل اسمك للانضمام إلى قاعة الفراعنة</p>
+                <form id="login-form">
+                    <div class="input-group">
+                        <input type="text" id="username" placeholder="اسم المستخدم" required maxlength="20">
+                    </div>
+                    <button type="submit" class="pharaoh-btn">
+                        <span>دخول القاعة</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- صفحة الشات -->
+        <div id="chat-page" class="page">
+            <div class="chat-container">
+                <div class="chat-header">
+                    <div class="header-content">
+                        <h2>⚱️ قاعة الفراعنة ⚱️</h2>
+                        <div class="user-info">
+                            <span class="username-display" id="current-user"></span>
+                            <button id="logout-btn" class="logout-btn">خروج</button>
+                        </div>
+                    </div>
+                    <div class="hieroglyph-divider"></div>
+                </div>
+
+                <div class="chat-messages" id="messages">
+                    <div class="system-message">
+                        <span>☥ مرحباً بك في قاعة الفراعنة ☥</span>
+                    </div>
+                </div>
+
+                <div class="chat-input-container">
+                    <form id="message-form">
+                        <div class="input-wrapper">
+                            <input type="text" id="message-input" placeholder="اكتب رسالتك هنا..." autocomplete="off" required>
+                            <button type="submit" class="send-btn">
+                                <span>إرسال 📜</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
